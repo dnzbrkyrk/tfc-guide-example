@@ -1,5 +1,5 @@
 data "azurerm_linux_web_app" "az204webapp5454" {
-  name                = "existing"
+  name                = "az204webapp5454"
   resource_group_name = "az204webapp5454_group"
 }
 
