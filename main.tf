@@ -4,5 +4,5 @@ data "azurerm_linux_web_app" "az204webapp5454" {
 }
 
 output "id" {
-  value = data.azurerm_linux_web_app.example.id
+  value = data.azurerm_linux_web_app.az204webapp5454.id
 }
