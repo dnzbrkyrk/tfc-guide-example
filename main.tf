@@ -41,7 +41,7 @@ resource "azurerm_container_group" "container" {
 }
 
 resource "azurerm_linux_function_app" "example" {
-  name                = "example-linux-function-app"
+  name                = "az204denizooo-funcapp"
   resource_group_name = "func-app-res-group"
   location            = var.resource_group_location
 
