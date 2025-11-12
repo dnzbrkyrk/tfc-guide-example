@@ -11,11 +11,6 @@ resource "random_pet" "rg_name" {
   prefix = var.resource_group_name_prefix
 }
 
-resource "azurerm_resource_group" "rg" {
-  name     = random_pet.rg_name.id
-  location = var.resource_group_location
-}
-
 resource "random_string" "container_name" {
   length  = 25
   lower   = true
@@ -25,7 +20,7 @@ resource "random_string" "container_name" {
 
 resource "azurerm_container_group" "container" {
   name                = "${var.container_group_name_prefix}-${random_string.container_name.result}"
-  location            = azurerm_resource_group.rg.location
+  location            = var.resource_group_location
   resource_group_name = "az204webapp5454_group"
   ip_address_type     = "Public"
   os_type             = "Linux"
@@ -43,4 +38,15 @@ resource "azurerm_container_group" "container" {
       protocol = "TCP"
     }
   }
+}
+
+resource "azurerm_linux_function_app" "example" {
+  name                = "example-linux-function-app"
+  resource_group_name = func-app-res-group
+  location            = var.resource_group_location
+
+  storage_account_name       = "funcappresgroupb31d"
+  service_plan_id            = ASP-funcappresgroup-a8b5
+
+  site_config {}
 }
