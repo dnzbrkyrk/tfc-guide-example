@@ -42,7 +42,7 @@ resource "azurerm_container_group" "container" {
 
 resource "azurerm_linux_function_app" "example" {
   name                = "example-linux-function-app"
-  resource_group_name = func-app-res-group
+  resource_group_name = "func-app-res-group"
   location            = var.resource_group_location
 
   storage_account_name       = "funcappresgroupb31d"
