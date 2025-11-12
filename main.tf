@@ -46,7 +46,7 @@ resource "azurerm_linux_function_app" "example" {
   location            = var.resource_group_location
 
   storage_account_name       = "funcappresgroupb31d"
-  service_plan_id            = ASP-funcappresgroup-a8b5
+  service_plan_id            = "ASP-funcappresgroup-a8b5"
 
   site_config {}
 }
